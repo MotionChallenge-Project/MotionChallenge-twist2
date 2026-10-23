@@ -1,0 +1,12 @@
+{
+  "model": "twist2",
+  "submitter": "Motion Challenge",
+  "submission_type": "maintainer reproduction, not author submission",
+  "upstream": "https://github.com/amazon-far/TWIST2",
+  "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
+  "checkpoint_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
+  "author_inference_review": "pending",
+  "benchmark_physics": "shared G1 canonical profile, not the author training simulator",
+  "legacy_results": "not transferable to this adapter revision without rerunning",
+  "redistribution": "checkpoint not distributed in Git; obtain from recorded upstream URL under its original terms"
+}
