@@ -14,7 +14,7 @@
   "state_access": "privileged-state-v0",
   "action_mode": "joint-pd-feedforward",
   "inference_config": "policy.json",
-  "inference_config_sha256": "cd22080d4d6586062eec6fa52afa20280a56a4e80ef586431a79d737acd92956",
+  "inference_config_sha256": "57d7d9c1f4b793ccf076f0260c9d249a7cdb99560814b7f0f4ad316f7655b17a",
   "weights": "checkpoints/policy.onnx",
   "weights_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
   "virtual_bodies": {
@@ -35,7 +35,7 @@
       ]
     }
   },
-  "provenance_status": "author-inference review in progress",
+  "provenance_status": "author-inference parity passed",
   "official": false,
   "source_repository": "https://github.com/amazon-far/TWIST2",
   "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",

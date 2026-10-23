@@ -1,0 +1,12 @@
+{
+  "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
+  "source_repository": "https://github.com/amazon-far/TWIST2",
+  "files": {
+    "deploy_real/server_low_level_g1_sim.py": "8f589b7f502bbbbb3c6dfd582a7a49b05521fcb088f79d3e646bbc463c42f3c0",
+    "deploy_real/server_low_level_g1_real.py": "cb96b7b86a0c5c9622e9e29e9d3f91c790348055f58f6eaeca448fd8ae2ac08e",
+    "deploy_real/server_motion_lib.py": "1500ae18b7021d48d1353acb7166f18564b3b9950c9cc2903d36b0507cf4497d",
+    "deploy_real/data_utils/rot_utils.py": "4a33db5fea6dbbc99aa8ff4e85994a55c71992bbb5a6aa638bf1341b17b67ea0",
+    "deploy_real/robot_control/config.py": "afdcb83e4f3460529c1c280a554c3ebb89ddb0488f72bda334d4b63032e710c2",
+    "deploy_real/robot_control/g1_wrapper.py": "c955da160a70eaab53cc64350927b6aa481ec7aea54e405ac56b68b02f4a5a09"
+  }
+}

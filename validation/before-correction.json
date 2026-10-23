@@ -1,0 +1,33 @@
+{
+  "passed": false,
+  "cases": 160,
+  "resets": 4,
+  "max_abs_error": {
+    "default": 0.0,
+    "scale": 0.0,
+    "kp": 36.0,
+    "kd": 4.8,
+    "reference": 1.1881150596693146e-07,
+    "observation": 1.1881150596693146e-07,
+    "network": 0.0,
+    "action": 0.0,
+    "motor_target": 0.0,
+    "synthetic_motor_target": 0.0
+  },
+  "limits": {
+    "default": 1e-07,
+    "scale": 0.0,
+    "kp": 0.0,
+    "kd": 0.0,
+    "reference": 0.0002,
+    "observation": 0.0002,
+    "network": 0.0,
+    "action": 0.0002,
+    "motor_target": 0.0002,
+    "synthetic_motor_target": 0.0002
+  },
+  "checkpoint_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
+  "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
+  "control_hz": 100,
+  "scope": "Original author initialization, motion-command tensor operations, observation/history statements, ONNX wrapper, raw last action, clipped motor target and PD gains. Transport, viewer and motion-file loading excluded; reference tensors use CPU, unchanged math. Benchmark owns physical torque limits."
+}
