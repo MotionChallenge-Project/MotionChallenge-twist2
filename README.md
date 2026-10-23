@@ -26,3 +26,9 @@ download and evaluation progress updates every 5 seconds.
 
 Run all frames after tracking failure: `uv run evaluate.py --termination none`.
 This records full-motion errors under a separate protocol; success still requires no failure.
+
+## Checkpoint source
+
+[amazon-far/TWIST2](https://github.com/amazon-far/TWIST2/blob/b06178f19a22f2138cbd31f60c6d494bc263f67d/README.md) · [twist2_1017_20k.onnx](https://github.com/amazon-far/TWIST2/blob/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx). Author-released checkpoint.
+
+The adapter pins this published artifact by SHA256. Artifact identity is separate from inference parity.

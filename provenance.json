@@ -8,5 +8,16 @@
   "author_inference_review": "pending",
   "benchmark_physics": "shared G1 canonical profile, not the author training simulator",
   "legacy_results": "not transferable to this adapter revision without rerunning",
-  "redistribution": "checkpoint not distributed in Git; obtain from recorded upstream URL under its original terms"
+  "redistribution": "checkpoint not distributed in Git; obtain from recorded upstream URL under its original terms",
+  "checkpoint_origin": {
+    "author_release_url": "https://github.com/amazon-far/TWIST2/blob/b06178f19a22f2138cbd31f60c6d494bc263f67d/README.md",
+    "author_release_label": "amazon-far/TWIST2",
+    "kind": "author_file",
+    "kind_label": "Author-released checkpoint",
+    "artifact_page_url": "https://github.com/amazon-far/TWIST2/blob/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
+    "original_filename": "twist2_1017_20k.onnx",
+    "verification": "The adapter pins this published artifact by SHA256. Artifact identity is separate from inference parity.",
+    "download_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
+    "sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061"
+  }
 }
