@@ -1,6 +1,6 @@
 {
   "model": "twist2",
-  "submitter": "Motion Challenge",
+  "submitter": "MotionChallenge",
   "submission_type": "maintainer reproduction, not author submission",
   "upstream": "https://github.com/amazon-far/TWIST2",
   "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",

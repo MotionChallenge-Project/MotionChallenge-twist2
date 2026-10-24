@@ -1,12 +1,12 @@
-# Motion Challenge · twist2
+# MotionChallenge · twist2
 
 [Author project](https://github.com/amazon-far/TWIST2) · [Checkpoint](https://github.com/amazon-far/TWIST2/blob/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx) · [Provenance](provenance.json)
 
 ## Install and run
 
 ```bash
-git clone --recurse-submodules https://github.com/MotionChallenge-Project/motion-challenge-twist2.git
-cd motion-challenge-twist2
+git clone --recurse-submodules https://github.com/MotionChallenge-Project/MotionChallenge-twist2.git
+cd MotionChallenge-twist2
 uv sync
 uv run evaluate.py
 ```
