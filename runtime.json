@@ -39,5 +39,13 @@
   "official": false,
   "source_repository": "https://github.com/amazon-far/TWIST2",
   "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
-  "weights_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx"
+  "weights_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
+  "default_track": "ideal-proprioception",
+  "observation_tracks": {
+    "ideal-proprioception": {
+      "entrypoint": "restricted:create",
+      "admission_record": "admission.json",
+      "admission_sha256": "52c5cf19008294e14bd845bb5b57b42883c2295270824a3ad0f5264737789e2b"
+    }
+  }
 }

@@ -1,0 +1,48 @@
+{
+  "schema": "MotionChallenge/observation-admission-v1",
+  "model": "twist2",
+  "display_name": "TWIST2 1017-20k",
+  "state_access": "ideal-proprioceptive-no-position-v1",
+  "status": "inference_verified",
+  "checkpoint_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
+  "auxiliary_artifacts": {},
+  "checkpoint_origin": {
+    "author_release_url": "https://github.com/amazon-far/TWIST2/blob/b06178f19a22f2138cbd31f60c6d494bc263f67d/README.md",
+    "author_release_label": "amazon-far/TWIST2",
+    "kind": "author_file",
+    "kind_label": "Author-released checkpoint",
+    "artifact_page_url": "https://github.com/amazon-far/TWIST2/blob/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
+    "original_filename": "twist2_1017_20k.onnx",
+    "verification": "The adapter pins this published artifact by SHA256. Artifact identity is separate from inference parity.",
+    "download_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
+    "sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061"
+  },
+  "author_source": "https://github.com/amazon-far/TWIST2",
+  "author_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
+  "base_adapter_commit": "4963926c368a280a8c157b92ba6b3e627a56f95e",
+  "production_source_sha256": {
+    "adapter.py": "32b37e06789c471e58f70041202c93fdb6f83948ccc912a48e8979cf425c5f47",
+    "evaluate.py": "0ebb8c761f00dd963f2e45c85ecb94628273911bb1edfc0f2621e8fc458cb4ff",
+    "native-sources.json": "5427f03d055a4d7cca09ab4c7644363846da82745604bd14b3706258b2b48452",
+    "policy.json": "57d7d9c1f4b793ccf076f0260c9d249a7cdb99560814b7f0f4ad316f7655b17a",
+    "validate_inference.py": "a5364ae653a3aea161903d1931e62644848a4aa27032e47879536d0779b90b83"
+  },
+  "prior_native_parity_sha256": {
+    "validation/native-parity.json": "82d85c4154298f1707d8f933bc79fbe1e94a7d717590f5d2742d77b93844ba53"
+  },
+  "handling": "Released actor uses joint state, angular velocity/gravity or orientation and reference features. Retain author normalization, history/recurrent state, action processing and declared lookahead; validate numerical independence from actual translation.",
+  "actual_position_integration": "No explicit integration or odometry in the inspected deployed adapter source; blocked paths are listed separately.",
+  "special_handling": "FK of allowed state at fixed synthetic origin (0,0,0); never actual measured origin.",
+  "new_evaluation": {
+    "status": "queued",
+    "inherited_scores": false
+  },
+  "repository": "https://github.com/MotionChallenge-Project/MotionChallenge-twist2",
+  "dependency_test": {
+    "path": "validation/observation-access.json",
+    "sha256": "fe1efb00f29e05c0173627c709fec621f5b627a0e14c907322c896f851e46a9e",
+    "code": "validate_observations.py",
+    "cases": 160,
+    "resets": 4
+  }
+}
