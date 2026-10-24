@@ -1,5 +1,5 @@
 {
-  "id": "twist2-g1-development-v1",
+  "id": "twist2-g1-v1",
   "entrypoint": "restricted:create",
   "control_period_s": 0.01,
   "reference_step_s": 0.02,
@@ -35,13 +35,13 @@
       ]
     }
   },
-  "provenance_status": "author-inference parity passed",
+  "provenance_status": "Author inference comparison passed; see validation/native-parity.json",
   "official": false,
   "source_repository": "https://github.com/amazon-far/TWIST2",
   "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
   "weights_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
   "observation_contract": {
     "admission_record": "admission.json",
-    "admission_sha256": "52c5cf19008294e14bd845bb5b57b42883c2295270824a3ad0f5264737789e2b"
+    "admission_sha256": "31cdd275777e2208ec3eff33bb30ee17793c7133a55b47d5832b53771bf73a88"
   }
 }
