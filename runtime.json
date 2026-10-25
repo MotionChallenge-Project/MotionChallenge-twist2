@@ -42,6 +42,8 @@
   "weights_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
   "observation_contract": {
     "admission_record": "admission.json",
-    "admission_sha256": "31cdd275777e2208ec3eff33bb30ee17793c7133a55b47d5832b53771bf73a88"
-  }
+    "admission_sha256": "3300237490bcff9d5e127716da3a0494d99831058262c6d81d36ef4ecd0ad79b"
+  },
+  "batch_entrypoint": "parallel:create",
+  "inference_workers": 2
 }
