@@ -19,33 +19,36 @@
   },
   "author_source": "https://github.com/amazon-far/TWIST2",
   "author_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
-  "base_adapter_commit": "4963926c368a280a8c157b92ba6b3e627a56f95e",
+  "base_adapter_commit": "f16a6daa0d8617c9c2d5dda8679ef6a1f4a5943b",
   "production_source_sha256": {
-    "adapter.py": "32b37e06789c471e58f70041202c93fdb6f83948ccc912a48e8979cf425c5f47",
+    "adapter.py": "b60b40d64bbe6a9ff3139d2f4ba1ea1182eff8955a9100adecbc734813dc5332",
     "evaluate.py": "0ebb8c761f00dd963f2e45c85ecb94628273911bb1edfc0f2621e8fc458cb4ff",
     "native-sources.json": "5427f03d055a4d7cca09ab4c7644363846da82745604bd14b3706258b2b48452",
-    "policy.json": "57d7d9c1f4b793ccf076f0260c9d249a7cdb99560814b7f0f4ad316f7655b17a",
-    "validate_inference.py": "a5364ae653a3aea161903d1931e62644848a4aa27032e47879536d0779b90b83",
+    "deployment-sources.json": "32b978c7a163ae2a729c6e587f78320e8235276a6649a946291a77b900aa357b",
+    "policy.json": "d53fc73223c7c729cc5e7030b6ca745b2a3cc3566bc34034e171e613ba97ca19",
+    "validate_inference.py": "6bb59bf4efc55b5592accf6ffe24f9f3b9136deb1001582d392b91bb3ecbe34d",
+    "validate_observations.py": "86c951c8756a7a1b0bdb7ba8ef17ab8d070210883d0235fc4c5fba801a38ae32",
+    "validate_parallel.py": "f8a4ad6485c86c995b90820aa03d7bd24c4a7dffa1051a6bc8928d1b3e04d248",
     "restricted.py": "8f8fdcc4dc41813cf5d8f8c55e4b219310145f74a540457b52c41843a49bd831",
     "parallel.py": "24f5d3b68572d209c8570f8e346ad63b158aac17a86950aebf49c397d2d234fc"
   },
   "prior_native_parity_sha256": {
-    "validation/native-parity.json": "82d85c4154298f1707d8f933bc79fbe1e94a7d717590f5d2742d77b93844ba53"
+    "validation/deployment-parity.json": "afe85de4d063d1a34e76e6792945429d1ddc42d166c5e9c4665852ec28e186b7"
   },
-  "handling": "Released actor uses joint state, angular velocity/gravity or orientation and reference features. Retain author normalization, history/recurrent state, action processing and declared lookahead; validate numerical independence from actual translation.",
+  "handling": "Original TWIST2 1017-20k network with the pinned sim2real deployment: 50 Hz, first-observation history fill, wrist Kp 40/Kd 5, and unclipped network actions. The author sim2sim route instead uses 100 Hz, zero history, wrist Kp 4/Kd 0.2 and action clipping at +/-10. Benchmark reference preparation, reset, 2 ms physics and scoring stay in Core.",
   "actual_position_integration": "No explicit integration or odometry in the inspected deployed adapter source; blocked paths are listed separately.",
   "special_handling": "FK of allowed state at fixed synthetic origin (0,0,0); never actual measured origin.",
   "repository": "https://github.com/MotionChallenge-Project/MotionChallenge-twist2",
   "dependency_test": {
     "path": "validation/observation-access.json",
-    "sha256": "fe1efb00f29e05c0173627c709fec621f5b627a0e14c907322c896f851e46a9e",
+    "sha256": "401129f525b1a15d5fbe421e1748c1a480154791b9cd99592557b0ca11e8801f",
     "code": "validate_observations.py",
     "cases": 160,
     "resets": 4
   },
   "execution_validation": {
     "path": "validation/concurrency.json",
-    "sha256": "40077de55102ce40ff00aa08f55320d966c9e22193fa8a1e19c18e6d205d12fe",
-    "scope": "Native outputs, independent histories/RNG, reordered slots/partial resets and all40 two-second closed-loop exact comparison; does not replace full benchmark evidence."
+    "sha256": "f465aacb45ee9cce7a623f0b560cd7aa1a1c7c479b76d36eac6df4154cdc6b7e",
+    "scope": "Scalar versus threaded inference on 40 LAFAN initial states and advancing references, reversed slot order and partial resets. Not a full rollout."
   }
 }

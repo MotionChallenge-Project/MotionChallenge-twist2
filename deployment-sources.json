@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/egalahad/sim2real",
+  "commit": "287ac157e6a7143340da7a9fc2fa5ff552031bc8",
+  "files": {
+    "sim2real/rl_policy/observations/twist2.py": "3d8e22247786742313abef6982a31c2e272b5a43bfdf317abfc786a878331b2a",
+    "sim2real/utils/math.py": "79b5f4e1475532cbd703dc6eef5fecafe44dc155c4d6e04e243251ca4092ebcb",
+    "sim2real/sim_env/integrated_sim2sim.py": "4b1ca72a1737e175fa715f0c8b030b250ffd9c46d3ca148fea5147ce961ea66b"
+  },
+  "policy_yaml": {
+    "url": "https://drive.google.com/file/d/1iwhj65CyCzXBHWF0z8SlXuyMNc1LOcgB/view",
+    "sha256": "4f79adbb7c587754519453d4dd82e25464759099c759dab8a8c2aa9b94d45061"
+  },
+  "wrapped_onnx": {
+    "url": "https://drive.google.com/file/d/1rKqu8Wqm68-KpLHsyBav3xmsvYDKeymW/view",
+    "sha256": "29c60ad0ac4d2fff46b86133f13fdf1bad2c77e401b1a89aa685b27175d86167"
+  }
+}

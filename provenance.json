@@ -5,7 +5,7 @@
   "upstream": "https://github.com/amazon-far/TWIST2",
   "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
   "checkpoint_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
-  "author_inference_review": "Numerical comparison against pinned author inference: validation/native-parity.json",
+  "author_inference_review": "Original author network identity plus pinned sim2real deployment comparison: validation/deployment-parity.json",
   "benchmark_physics": "Shared canonical G1 nominal physics and initialization.",
   "redistribution": "checkpoint not distributed in Git; obtain from recorded upstream URL under its original terms",
   "checkpoint_origin": {
@@ -19,6 +19,23 @@
     "download_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
     "sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061"
   },
-  "native_validation": "validation/native-parity.json",
-  "correction": "Wrist PD gains match the original author sim2sim release: Kp 4 and Kd 0.2, replacing 40 and 5. Full benchmark rerun is required."
+  "native_validation": "validation/deployment-parity.json",
+  "deployment_configuration": "Original TWIST2 1017-20k network with the pinned sim2real deployment: 50 Hz, first-observation history fill, wrist Kp 40/Kd 5, and unclipped network actions. The author sim2sim route instead uses 100 Hz, zero history, wrist Kp 4/Kd 0.2 and action clipping at +/-10. Benchmark reference preparation, reset, 2 ms physics and scoring stay in Core.",
+  "deployment_source": {
+    "repository": "https://github.com/egalahad/sim2real",
+    "commit": "287ac157e6a7143340da7a9fc2fa5ff552031bc8",
+    "files": {
+      "sim2real/rl_policy/observations/twist2.py": "3d8e22247786742313abef6982a31c2e272b5a43bfdf317abfc786a878331b2a",
+      "sim2real/utils/math.py": "79b5f4e1475532cbd703dc6eef5fecafe44dc155c4d6e04e243251ca4092ebcb",
+      "sim2real/sim_env/integrated_sim2sim.py": "4b1ca72a1737e175fa715f0c8b030b250ffd9c46d3ca148fea5147ce961ea66b"
+    },
+    "policy_yaml": {
+      "url": "https://drive.google.com/file/d/1iwhj65CyCzXBHWF0z8SlXuyMNc1LOcgB/view",
+      "sha256": "4f79adbb7c587754519453d4dd82e25464759099c759dab8a8c2aa9b94d45061"
+    },
+    "wrapped_onnx": {
+      "url": "https://drive.google.com/file/d/1rKqu8Wqm68-KpLHsyBav3xmsvYDKeymW/view",
+      "sha256": "29c60ad0ac4d2fff46b86133f13fdf1bad2c77e401b1a89aa685b27175d86167"
+    }
+  }
 }

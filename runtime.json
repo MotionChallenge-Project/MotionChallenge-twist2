@@ -1,7 +1,7 @@
 {
-  "id": "twist2-g1-v1",
+  "id": "twist2-g1-sim2real-v1",
   "entrypoint": "restricted:create",
-  "control_period_s": 0.01,
+  "control_period_s": 0.02,
   "reference_step_s": 0.02,
   "reference_steps": [
     0
@@ -14,7 +14,7 @@
   "state_access": "ideal-proprioceptive-no-position-v1",
   "action_mode": "joint-pd-feedforward",
   "inference_config": "policy.json",
-  "inference_config_sha256": "57d7d9c1f4b793ccf076f0260c9d249a7cdb99560814b7f0f4ad316f7655b17a",
+  "inference_config_sha256": "d53fc73223c7c729cc5e7030b6ca745b2a3cc3566bc34034e171e613ba97ca19",
   "weights": "checkpoints/policy.onnx",
   "weights_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
   "virtual_bodies": {
@@ -35,14 +35,14 @@
       ]
     }
   },
-  "provenance_status": "Author inference comparison passed; see validation/native-parity.json",
+  "provenance_status": "Pinned sim2real deployment comparison; see validation/deployment-parity.json",
   "official": false,
   "source_repository": "https://github.com/amazon-far/TWIST2",
   "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
   "weights_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
   "observation_contract": {
     "admission_record": "admission.json",
-    "admission_sha256": "3300237490bcff9d5e127716da3a0494d99831058262c6d81d36ef4ecd0ad79b"
+    "admission_sha256": "dff97cc3e99ca6acf8feecd8d4eb619c98528c5ab5a6af05f948e0624735ac5a"
   },
   "batch_entrypoint": "parallel:create",
   "inference_workers": 2

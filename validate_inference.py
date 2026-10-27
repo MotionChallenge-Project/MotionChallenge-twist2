@@ -1,134 +1,152 @@
-"""Native TWIST2 parity check; run with `uv run --with torch validate_inference.py ...`."""
+"""Compare against pinned sim2real observation/reset/action code and its wrapped ONNX.
+
+Validation only: uv run --with onnx --with pyyaml validate_inference.py --help
+Runtime keeps the original author ONNX and has no sim2real dependency.
+"""
 import argparse
 import ast
-from collections import deque
 import hashlib
 import json
 from pathlib import Path
 from types import SimpleNamespace as NS
 
 import numpy as np
-import torch
+import onnx
+import onnxruntime as ort
+import yaml
 from scipy.spatial.transform import Rotation as R
 
 from adapter import TWIST2
+from motion_challenge.adapters.onnx import vector
 from motion_challenge.sdk import ReferenceFrame, StatePacket
 
 
 def execute(nodes, scope, path):
-    exec(compile(ast.Module(ast.parse('from __future__ import annotations').body + nodes, []), str(path), 'exec'), scope)
-
-
-def target(node):
-    return ast.unparse(node.targets[0]) if isinstance(node, ast.Assign) else ''
+    tree = ast.Module(ast.parse('from __future__ import annotations').body + nodes, [])
+    exec(compile(ast.fix_missing_locations(tree), str(path), 'exec'), scope)
 
 
 def main():
     parser = argparse.ArgumentParser()
-    for name in ('source', 'weights', 'output'):
+    for name in ('source', 'weights', 'deployment-config', 'deployment-weights', 'output'):
         parser.add_argument('--' + name, type=Path, required=True)
     args = parser.parse_args()
     root = Path(__file__).resolve().parent
-    pins = json.loads((root / 'native-sources.json').read_text())
-    for name, sha in pins['files'].items():
-        assert hashlib.sha256((args.source / name).read_bytes()).hexdigest() == sha, name
+    pins = json.loads((root / 'deployment-sources.json').read_text())
+    sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+    for name, digest in pins['files'].items():
+        assert sha(args.source / name) == digest, name
+    assert sha(args.deployment_config) == pins['policy_yaml']['sha256']
+    assert sha(args.deployment_weights) == pins['wrapped_onnx']['sha256']
     runtime = json.loads((root / 'runtime.json').read_text())
     runtime['weights'] = str(args.weights.resolve())
     policy = TWIST2(root, runtime)
-    path = args.source / 'deploy_real/server_low_level_g1_sim.py'
-    tree = ast.parse(path.read_text())
-    scope = {'np': np, 'torch': torch, 'deque': deque}
-    execute([n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == 'OnnxPolicyWrapper'], scope, path)
-    rotation_path = args.source / 'deploy_real/data_utils/rot_utils.py'
-    execute([n for n in ast.parse(rotation_path.read_text()).body if isinstance(n, ast.FunctionDef)], scope, rotation_path)
-    cls = next(n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == 'RealTimePolicyController')
-    init = next(n for n in cls.body if isinstance(n, ast.FunctionDef) and n.name == '__init__')
-    fields = ('num_actions', 'last_action', 'default_dof_pos', 'stiffness', 'damping', 'action_scale',
-              'ankle_idx', 'n_mimic_obs', 'n_proprio', 'n_obs_single', 'history_len', 'total_obs_size', 'proprio_history_buf')
-    initialization = [n for n in init.body if target(n) in {'self.' + name for name in fields}
-                      or isinstance(n, ast.For) and 'self.proprio_history_buf.append' in ast.unparse(n)]
-    run = next(n for n in cls.body if isinstance(n, ast.FunctionDef) and n.name == 'run')
-    branch = next(n for n in ast.walk(run) if isinstance(n, ast.If) and 'i % self.sim_decimation' in ast.unparse(n.test))
-    obs_names = {'rpy', 'obs_body_dof_vel', 'obs_body_dof_vel[self.ankle_idx]', 'obs_proprio', 'obs_full', 'obs_hist', 'future_obs', 'obs_buf'}
-    observation = [n for n in branch.body if target(n) in obs_names
-                   or isinstance(n, ast.Expr) and ast.unparse(n).startswith('self.proprio_history_buf.append(')]
-    action_names = {'self.last_action', 'raw_action', 'scaled_actions', 'pd_target'}
-    conversion = [n for n in branch.body if target(n) in action_names]
-    main_fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'main')
-    frequency = next(n for n in ast.walk(main_fn) if isinstance(n, ast.Call) and n.args
-                     and isinstance(n.args[0], ast.Constant) and n.args[0].value == '--policy_frequency')
-    hz = next(k.value.value for k in frequency.keywords if k.arg == 'default')
-    assert runtime['control_period_s'] == 1 / hz
-    motion_path = args.source / 'deploy_real/server_motion_lib.py'
-    build = next(n for n in ast.parse(motion_path.read_text()).body if isinstance(n, ast.FunctionDef) and n.name == 'build_mimic_obs')
-    start = next(i for i, n in enumerate(build.body) if target(n) == '(roll, pitch, yaw)')
-    motion_nodes = [n for n in build.body[start:] if not isinstance(n, ast.Return)]
-    native_model = scope['OnnxPolicyWrapper'](policy.session, 'input')
-    rng = np.random.default_rng(241026)
-    names = tuple(np.array(policy.names)[rng.permutation(29)])
-    order = [names.index(name) for name in policy.names]
-    errors = {key: 0. for key in ('default', 'scale', 'kp', 'kd', 'reference', 'observation', 'network', 'action', 'motor_target', 'synthetic_motor_target')}
+    cfg = yaml.safe_load(args.deployment_config.read_text())
+    for attr, key in [('names', 'policy_joint_names'), ('kp', 'joint_kp'),
+                      ('kd', 'joint_kd'), ('default', 'default_joint_pos'), ('scale', 'action_scale')]:
+        expected = cfg[key] if attr == 'names' else vector(cfg[key], policy.names)
+        assert np.array_equal(getattr(policy, attr), expected), attr
+    assert policy.cfg.get('action_clip') is None
+    assert runtime['reference_offsets_s'] == [0.0]
+    sim_path = args.source / 'sim2real/sim_env/integrated_sim2sim.py'
+    sim_tree = ast.parse(sim_path.read_text())
+    env_dt = [n.value.value for n in ast.walk(sim_tree) if isinstance(n, ast.AnnAssign)
+              and isinstance(n.target, ast.Name) and n.target.id == 'env_dt']
+    assert env_dt == [runtime['control_period_s']] == [.02]
+    setup = next(n for n in ast.walk(sim_tree) if isinstance(n, ast.FunctionDef) and n.name == 'setup_policy')
+    conversion = next(n for n in setup.body if isinstance(n, ast.FunctionDef) and n.name == 'policy')
+    target_nodes = [n for n in conversion.body if isinstance(n, (ast.Assign, ast.AugAssign))
+                    and ('q_target' in ast.unparse(n))]
+
+    # Execute the public methods themselves, with a minimal reference/state provider.
+    class Motion:
+        def reset(self): pass
+        def update(self, data): pass
+        def _motion_step_index(self, step): return step
+    scope = {'np': np, 'motion_obs': Motion}
+    math_path = args.source / 'sim2real/utils/math.py'
+    execute([n for n in ast.parse(math_path.read_text()).body if isinstance(n, ast.FunctionDef)
+             and n.name == 'quat_rotate_inverse_numpy'], scope, math_path)
+    obs_path = args.source / 'sim2real/rl_policy/observations/twist2.py'
+    nodes = ast.parse(obs_path.read_text()).body
+    cls = next(n for n in nodes if isinstance(n, ast.ClassDef) and n.name == 'twist2_input')
+    cls.keywords = []
+    execute([n for n in nodes if isinstance(n, ast.FunctionDef) and n.name == '_quat_to_roll_pitch'] + [cls], scope, obs_path)
+    native = scope['twist2_input'].__new__(scope['twist2_input'])
+    native.env = NS(num_actions=29)
+    native.history = np.zeros((10, 127), np.float32)
+    native.input = np.zeros((1, 1432), np.float32)
+    native.current_step = native.future_step = 0
+    native.joint_ids = list(range(29))
+    native.ankle_indices = [i for i, n in enumerate(policy.names) if 'ankle' in n]
+    native.default_joint_pos = policy.default.astype(np.float32)
+    native.ang_vel_scale, native.dof_pos_scale, native.dof_vel_scale = .25, 1., .05
+    options = ort.SessionOptions()
+    options.intra_op_num_threads = options.inter_op_num_threads = 1
+    wrapped = ort.InferenceSession(str(args.deployment_weights), options, providers=['CPUExecutionProvider'])
+    arrays = lambda p: [onnx.numpy_helper.to_array(t) for t in onnx.load(p).graph.initializer]
+    original, other = arrays(args.weights), arrays(args.deployment_weights)
+    assert len(original) == len(other) == 32
+    assert all(np.array_equal(a, b) for a, b in zip(original, other))
+    rng = np.random.default_rng(271026)
+    names = tuple(np.asarray(policy.names)[rng.permutation(29)])
+    order = [names.index(n) for n in policy.names]
+    errors = {k: 0. for k in ('reset_history', 'observation', 'same_input_network', 'network', 'motor_target', 'synthetic_motor_target')}
     def compare(key, a, b):
-        errors[key] = max(errors[key], float(np.max(np.abs(np.asarray(a) - np.asarray(b)))))
+        errors[key] = max(errors[key], float(np.max(np.abs(np.asarray(a, dtype=np.float64) - b))))
     for reset in range(4):
-        native = NS()
-        scope['self'] = native
-        execute(initialization, scope, path)
-        for key, actual, expected in [('default', policy.default, native.default_dof_pos),
-                                     ('scale', policy.scale, native.action_scale),
-                                     ('kp', policy.kp, native.stiffness), ('kd', policy.kd, native.damping)]:
-            compare(key, actual, expected)
+        previous = np.zeros(29, np.float32)
         for step in range(40):
-            actual, ref_rot = R.random(random_state=rng), R.random(random_state=rng)
+            rot, rr = R.from_euler('xyz', rng.uniform(-.7, .7, (2, 3)))
             q, qd, omega = rng.normal(0, .35, 29), rng.normal(0, .5, 29), rng.normal(0, .3, 3)
-            state = StatePacket(step / hz, names, tuple(q), tuple(qd), (0., 0., .8), tuple(actual.as_quat()),
-                                (0.,) * 3, tuple(actual.apply(omega)))
-            ref = ReferenceFrame(step / hz, step / hz, tuple(rng.normal(0, .35, 29)),
-                                 tuple(rng.normal(0, .3, 3)), tuple(ref_rot.as_quat()),
-                                 (0.,) * 29, tuple(rng.normal(0, .3, 3)), tuple(rng.normal(0, .3, 3)))
-            for name, value in [('root_pos', ref.root_position_world_m), ('root_rot', ref.root_orientation_xyzw),
-                                ('root_vel', ref.root_linear_velocity_world_m_s), ('root_ang_vel', ref.root_angular_velocity_world_rad_s),
-                                ('dof_pos', np.array(ref.joint_position_rad)[order])]:
-                scope[name] = torch.tensor(np.array(value)[None], dtype=torch.float64)
-            scope.update(mask_indicator=False, device=torch.device('cpu'))
-            execute(motion_nodes, scope, motion_path)
-            motion = scope['mimic_obs_buf'].numpy().reshape(-1)
-            scope.update(dof_pos=q[order], dof_vel=qd[order], quat=actual.as_quat()[[3, 0, 1, 2]],
-                         ang_vel=omega, action_mimic=motion)
+            state = StatePacket(step * .02, names, tuple(q), tuple(qd), (0., 0., .8), tuple(rot.as_quat()),
+                                (0.,) * 3, tuple(rot.apply(omega)))
+            ref = ReferenceFrame(step * .02, step * .02, tuple(rng.normal(0, .35, 29)),
+                                 tuple(rng.normal(0, .3, 3)), tuple(rr.as_quat()), (0.,) * 29,
+                                 tuple(rng.normal(0, .3, 3)), tuple(rng.normal(0, .3, 3)))
+            native.state_processor = NS(joint_pos=q[order].astype(np.float32), joint_vel=qd[order].astype(np.float32),
+                                        root_ang_vel_b=omega.astype(np.float32), root_quat_w=rot.as_quat()[[3, 0, 1, 2]].astype(np.float32))
+            for field, value in [('root_pos_future_w', ref.root_position_world_m),
+                                 ('root_quat_future_w', rr.as_quat()[[3, 0, 1, 2]]),
+                                 ('root_lin_vel_future_w', ref.root_linear_velocity_world_m_s),
+                                 ('root_ang_vel_future_w', ref.root_angular_velocity_world_rad_s),
+                                 ('joint_pos_future', np.asarray(ref.joint_position_rad)[order])]:
+                setattr(native, 'ref_' + field, np.asarray(value, np.float32)[None, None])
             if step == 0:
                 policy.reset(state, (ref,), reset)
-            execute(observation, scope, path)
-            expected = scope['obs_buf'][None].astype(np.float32)
+                native.reset()
+                compare('reset_history', policy.history, native.history)
+            # Feed the same previous action to isolate observation arithmetic error.
+            policy.last = previous.copy()
+            native.update({'action': previous})
             inputs = policy.observations(state, (ref,))
-            compare('reference', inputs['input'][0, :35], motion)
-            compare('observation', inputs['input'], expected)
-            raw = native_model(torch.from_numpy(expected)).numpy().reshape(-1)
-            compare('network', policy.infer({'input': expected})['output'].reshape(-1), raw)
-            scope['raw_action'] = raw
-            execute(conversion, scope, path)
+            compare('observation', inputs['input'], native.input)
+            feed = {k: v[None] for k, v in native._input_parts.items()}
+            raw = wrapped.run(None, feed)[0].reshape(-1)
+            compare('same_input_network', policy.infer({'input': native.input})['output'].reshape(-1), raw)
+            compare('network', policy.infer(inputs)['output'].reshape(-1), raw)
             fn = policy.observations
             policy.observations = lambda *_: inputs
             result = policy.act(state, (ref,))
             policy.observations = fn
-            compare('action', policy.last, native.last_action)
-            compare('motor_target', np.array(result.joint_position_target_rad)[order], scope['pd_target'])
-        synthetic = np.linspace(-20, 20, 29, dtype=np.float32)
-        scope['raw_action'] = synthetic
-        execute(conversion, scope, path)
-        fn = policy.infer
-        policy.infer = lambda _: {'output': synthetic}
-        result = policy.act(state, (ref,))
-        policy.infer = fn
-        compare('synthetic_motor_target', np.array(result.joint_position_target_rad)[order], scope['pd_target'])
-        compare('action', policy.last, native.last_action)
-    limits = {key: 2e-4 for key in errors}
-    limits.update(network=0., default=1e-7, scale=0., kp=0., kd=0.)
-    report = {'passed': all(errors[k] <= limits[k] for k in errors), 'cases': 160, 'resets': 4,
-              'max_abs_error': errors, 'limits': limits, 'checkpoint_sha256': runtime['weights_sha256'],
-              'source_commit': pins['source_commit'], 'control_hz': hz,
-              'scope': 'Original author initialization, motion-command tensor operations, observation/history statements, '
-                       'ONNX wrapper, raw last action, clipped motor target and PD gains. Transport, viewer and '
-                       'motion-file loading excluded; reference tensors use CPU, unchanged math. Benchmark owns physical torque limits.'}
+            scope.update(self=NS(default_dof_angles=policy.default, controlled_joint_indices=np.arange(29), action_scale=policy.scale), action=raw)
+            execute(target_nodes, scope, sim_path)
+            compare('motor_target', np.asarray(result.joint_position_target_rad)[order], scope['q_target'])
+            previous = raw
+        # Exercise outputs beyond the former clipping range explicitly.
+        raw = np.linspace(-20, 20, 29, dtype=np.float32)
+        fn = policy.infer; policy.infer = lambda _: {'output': raw}
+        result = policy.act(state, (ref,)); policy.infer = fn
+        scope['action'] = raw; execute(target_nodes, scope, sim_path)
+        compare('synthetic_motor_target', np.asarray(result.joint_position_target_rad)[order], scope['q_target'])
+        assert np.array_equal(policy.last, raw)
+    limits = {k: 2e-4 for k in errors}
+    limits.update(same_input_network=0., synthetic_motor_target=0.)
+    report = dict(passed=all(errors[k] <= limits[k] for k in errors), cases=160, resets=4,
+                  max_abs_error=errors, limits=limits, checkpoint_sha256=runtime['weights_sha256'],
+                  deployment_source_commit=pins['commit'], control_hz=50, identical_initializer_tensors=32,
+                  scope='Pinned sim2real reset/history, observation methods, ONNX wrapper, action-to-target statements and PD config. Original author network unchanged.',
+                  differences='Reference preparation, initial state, 2ms physics, safety/torque limits and metrics remain owned by MotionChallenge Core. Float64 Core state versus float32 deployment state is compared within the recorded tolerance.')
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report, indent=2))

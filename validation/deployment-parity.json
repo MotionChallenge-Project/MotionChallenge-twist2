@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "cases": 160,
+  "resets": 4,
+  "max_abs_error": {
+    "reset_history": 1.1920928955078125e-07,
+    "observation": 2.384185791015625e-07,
+    "same_input_network": 0.0,
+    "network": 2.86102294921875e-06,
+    "motor_target": 1.430511474609375e-06,
+    "synthetic_motor_target": 0.0
+  },
+  "limits": {
+    "reset_history": 0.0002,
+    "observation": 0.0002,
+    "same_input_network": 0.0,
+    "network": 0.0002,
+    "motor_target": 0.0002,
+    "synthetic_motor_target": 0.0
+  },
+  "checkpoint_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
+  "deployment_source_commit": "287ac157e6a7143340da7a9fc2fa5ff552031bc8",
+  "control_hz": 50,
+  "identical_initializer_tensors": 32,
+  "scope": "Pinned sim2real reset/history, observation methods, ONNX wrapper, action-to-target statements and PD config. Original author network unchanged.",
+  "differences": "Reference preparation, initial state, 2ms physics, safety/torque limits and metrics remain owned by MotionChallenge Core. Float64 Core state versus float32 deployment state is compared within the recorded tolerance."
+}

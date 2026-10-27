@@ -22,6 +22,10 @@ outside Git.
 This repository adapts model inference. The pinned root `MotionChallenge-Core`
 submodule owns datasets, physics, metrics and verification. See `--help` for options.
 
+## Deployment
+
+Original author weights, using [sim2real’s deployment configuration](https://github.com/egalahad/sim2real/tree/287ac157e6a7143340da7a9fc2fa5ff552031bc8): **50 Hz**, first-observation history fill, wrist **Kp 40 / Kd 5**, and unclipped network actions. These differ from the author’s original 100 Hz sim2sim setup; benchmark physics and scoring remain shared. [Numerical comparison](validation/deployment-parity.json) · [Source pins](deployment-sources.json).
+
 ## Observations
 
-Ideal proprioception, without robot world-position or contact feedback. [Checkpoint requirements](admission.json) · [Rules](https://github.com/MotionChallenge-Project/MotionChallenge-Core/blob/da0aec4023bbc3d29be67e1fce9fa9ab8a48c4b5/docs/OBSERVATIONS.md).
+Ideal proprioception, without robot world-position or contact feedback. [Checkpoint requirements](admission.json) · [Rules](https://github.com/MotionChallenge-Project/MotionChallenge-Core/blob/b08ef12c6898ee866a81bdce055099ee2d0cee4b/docs/OBSERVATIONS.md).
