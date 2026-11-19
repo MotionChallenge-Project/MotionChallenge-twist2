@@ -2,7 +2,7 @@
   "model": "twist2",
   "status": "passed",
   "errors": [],
-  "core_commit": "2221fab60a90adc3c85b1dfd438e00244fb58263",
+  "core_commit": "e4cb035b9f95ec820c4a0384df1f4ebdcbc0abf4",
   "runtime_sha256": "61de74e638f3894e6ed1964c6abc65b983831faec46981301d7bade86bd3a980",
   "locked_environment_and_cli": true,
   "own_core_import": "/mnt/volumes/nexus-train-bd-ga/swd/motionchallenge-mjwarp/MotionChallenge-twist2/MotionChallenge-Core/src/motion_challenge/__init__.py",
