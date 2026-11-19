@@ -1,31 +1,39 @@
-# MotionChallenge · twist2
+# TWIST2
 
-[Author project](https://github.com/amazon-far/TWIST2) · [Checkpoint](https://github.com/amazon-far/TWIST2/blob/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx) · [Provenance](provenance.json)
+GPU batch evaluation of the released TWIST2 checkpoint on LAFAN and BONES-SEED.
 
-## Install and run
+## Run
 
 ```bash
 git clone --recurse-submodules https://github.com/MotionChallenge-Project/MotionChallenge-twist2.git
 cd MotionChallenge-twist2
-uv sync
-uv run evaluate.py
+uv sync --locked
+uv run evaluate.py --dataset lafan --data /path/to/lafan --device cuda:0 --output /path/to/results/twist2-lafan
+uv run evaluate.py --dataset seed --data /path/to/g1.tar.gz --device cuda:0 --output /path/to/results/twist2-seed
 ```
 
-One full rollout per motion produces success, completion and all six MPBPE values
-in one verified `result.json`. Tuned inference defaults; CPU slots scale with
-available cores. `--jobs N` overrides the slots. Progress updates every five seconds.
+Download original [LAFAN](https://huggingface.co/datasets/lvhaidong/LAFAN1_Retargeting_Dataset) or [BONES-SEED](https://huggingface.co/datasets/bones-studio/seed) data and accept the upstream terms. The LAFAN directory contains `g1/*.csv`. The SEED archive is selected by Core's single public inclusion list. Motion data stays local.
 
-Missing data and weights are downloaded and hash-checked. Cached files can be
-selected with `--weights PATH --data PATH --offline`. Results and traces stay
-outside Git.
+The command downloads and verifies the original model weights, converts them to safetensors plus a PyTorch execution graph, evaluates the complete selected dataset, and independently verifies the recorded trajectories. Use a fresh output directory for each run.
 
-This repository adapts model inference. The pinned root `MotionChallenge-Core`
-submodule owns datasets, physics, metrics and verification. See `--help` for options.
+```bash
+uv run evaluate.py --dataset lafan --data /path/to/lafan --weights /path/to/original-checkpoint --offline --device cuda:0 --output /path/to/results/twist2-lafan
+```
 
-## Deployment
+LAFAN uses 40 simulation slots and SEED uses 4096. Each control step runs one full-batch network forward. Finished slots are refilled in longest-motion-first order. `--slots` selects a different capacity. `--cache` sets the local preparation and model conversion cache.
 
-Original author weights, using [sim2real’s deployment configuration](https://github.com/egalahad/sim2real/tree/287ac157e6a7143340da7a9fc2fa5ff552031bc8): **50 Hz**, first-observation history fill, wrist **Kp 40 / Kd 5**, and unclipped network actions. These differ from the author’s original 100 Hz sim2sim setup; benchmark physics and scoring remain shared. [Numerical comparison](validation/deployment-parity.json) · [Source pins](deployment-sources.json).
+## Evaluation contract
 
-## Observations
+The control period is 20 ms with four 5 ms physics substeps. Sliding friction is 1.0 and the Newton solver uses at most 50 iterations. Core precomputes scoring reference FK before rollout and reads actual body poses from MJWarp.
 
-Ideal proprioception, without robot world-position or contact feedback. [Checkpoint requirements](admission.json) · [Rules](https://github.com/MotionChallenge-Project/MotionChallenge-Core/blob/b08ef12c6898ee866a81bdce055099ee2d0cee4b/docs/OBSERVATIONS.md).
+Policies receive joint positions and velocities, root orientation, angular velocity, and root/joint reference motion. Actual global position and actual linear velocity are unavailable. Model-specific reference features and policy history are maintained by this repository.
+
+The original checkpoint SHA256 is `2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061`. `runtime.mjwarp.json` specifies its source, input configuration, observation contract and conversion entrypoint.
+
+## Validation
+
+`validation/mjwarp-network-parity.json` records original ONNX versus PyTorch batch parity. `validation/full-batch-parity.json` records a 4096-sample forward and original ONNX row checks. `validation/tensor-observation-parity.json` records original observation/history/reset and PD-target parity.
+
+Each evaluation writes `result.json`, trace files, input hashes and `verification.json`. Dataset scores require full motion coverage and independent trace verification.
+
+`validation/full-batch-adapter.json` verifies 4096 active adapter states, a full forward and partial resets. `validation/onnxruntime-parity.json` checks the original ONNX in an independent ONNX Runtime environment.

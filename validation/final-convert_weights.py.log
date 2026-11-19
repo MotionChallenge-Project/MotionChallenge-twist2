@@ -1,0 +1,289 @@
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:14: RuntimeWarning: overflow encountered in exp
+  exp_x = np.exp(x)
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:17: RuntimeWarning: overflow encountered in exp
+  1.0 / (1.0 + np.exp(-x)),
+/mnt/volumes/nexus-train-bd-ga/swd/seed/.venv/lib/python3.12/site-packages/onnx/reference/ops/op_sigmoid.py:18: RuntimeWarning: invalid value encountered in divide
+  exp_x / (1.0 + exp_x),
+/mnt/volumes/nexus-train-bd-ga/swd/motionchallenge-mjwarp/converted-weights/twist2

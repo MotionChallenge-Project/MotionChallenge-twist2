@@ -1,0 +1,52 @@
+{
+  "id": "twist2-g1-sim2real-v1",
+  "control_period_s": 0.02,
+  "reference_step_s": 0.02,
+  "reference_steps": [
+    0
+  ],
+  "reference_offsets_s": [
+    0.0
+  ],
+  "reference_history_s": 0,
+  "reference_preview_s": 0.0,
+  "state_access": "proprioceptive-no-position-no-linear-velocity-v1",
+  "action_mode": "joint-pd-feedforward",
+  "inference_config": "policy.json",
+  "inference_config_sha256": "d53fc73223c7c729cc5e7030b6ca745b2a3cc3566bc34034e171e613ba97ca19",
+  "weights": "checkpoints/policy.onnx",
+  "weights_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
+  "virtual_bodies": {
+    "left_toe_link": {
+      "parent": "left_ankle_roll_link",
+      "position_parent_m": [
+        0.1,
+        0.0,
+        -0.02
+      ]
+    },
+    "right_toe_link": {
+      "parent": "right_ankle_roll_link",
+      "position_parent_m": [
+        0.1,
+        0.0,
+        -0.02
+      ]
+    }
+  },
+  "provenance_status": "Pinned sim2real deployment comparison; see validation/deployment-parity.json",
+  "official": false,
+  "source_repository": "https://github.com/amazon-far/TWIST2",
+  "source_commit": "b06178f19a22f2138cbd31f60c6d494bc263f67d",
+  "weights_url": "https://raw.githubusercontent.com/amazon-far/TWIST2/b06178f19a22f2138cbd31f60c6d494bc263f67d/assets/ckpts/twist2_1017_20k.onnx",
+  "observation_contract": {
+    "admission_record": "admission.mjwarp.json",
+    "admission_sha256": "e8cf2ff4879afe3b5ce14eef826db205478731f9831d4947f2ea6bc723713fb8"
+  },
+  "migration_status": "inference_verified",
+  "tensor_entrypoint": "tensor_adapter:TensorTWIST2",
+  "tensor_conversion": "convert_weights:prepare",
+  "tensor_outputs": [
+    "output"
+  ]
+}

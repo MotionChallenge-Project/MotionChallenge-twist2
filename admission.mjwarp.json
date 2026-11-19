@@ -1,0 +1,38 @@
+{
+  "state_access": "proprioceptive-no-position-no-linear-velocity-v1",
+  "checkpoint_sha256": "2d1fb3a31e4e967f70ecfefc3ad1e7b2ac491677068b89f60b565a94e7735061",
+  "status": "inference_verified",
+  "reason": "Strict tensor observations, original inference parity and full-batch conversion checks passed.",
+  "schema": "MotionChallenge/observation-admission-v1",
+  "model": "twist2",
+  "evidence_sha256": {
+    "validation/mjwarp-network-parity.json": "135223be7c103ed273523a16293fe99463765e480853dd6490eb5c59d5ec4d2e",
+    "validation/full-batch-parity.json": "40c725c520387f8c21bf310a76af5705544f711c205d5136cb0b9347b83d62f3",
+    "validation/tensor-observation-parity.json": "6a6b67a6f01a1c7c10ae9bb9044fb2bea12d81e2fbbb371c0f2455137d6eaffb",
+    "validation/full-batch-adapter.json": "75c43407a859e63c1b8e03df2735dd4fe12128ddb9cc505d306b27b46ff4dcf7",
+    "validation/onnxruntime-parity.json": "51e6bcc2c4c3c4a7085cc59f087f8ad5a64e8804db914a4c7b604a0042f73890"
+  },
+  "production_source_sha256": {
+    "tensor_common.py": "518fc3b40e5c38078d1d2fce4cf7133f6aa614b442152a01fdbbd5e600401a2e",
+    "validate_batch.py": "9b9a640583cf0bea9c7df2cdff456ee7eb73d9badb2df1151e4d1784bc66356c",
+    "torch_graph.py": "7fd92161cb5465f0f2eb91429009dc3c6b6c4a4fb533300228f9c4262b6a4d4f",
+    "adapter.py": "b60b40d64bbe6a9ff3139d2f4ba1ea1182eff8955a9100adecbc734813dc5332",
+    "parallel.py": "24f5d3b68572d209c8570f8e346ad63b158aac17a86950aebf49c397d2d234fc",
+    "validate_parallel.py": "f8a4ad6485c86c995b90820aa03d7bd24c4a7dffa1051a6bc8928d1b3e04d248",
+    "convert_weights.py": "486998deef93d9f21d7ae21b2c9ab68721a7d300e4311fe934eb3b31b25df75f",
+    "validate_tensor.py": "110d5a2c7dd3e84b538daa088d156d975f15fd40dc0b323657b1ee304182f123",
+    "validate_observations.py": "86c951c8756a7a1b0bdb7ba8ef17ab8d070210883d0235fc4c5fba801a38ae32",
+    "evaluate.py": "f89bd2cf0333e7f5639431d6976253da3ad6ef8d490340362f4b4630d533d071",
+    "validate_inference.py": "6bb59bf4efc55b5592accf6ffe24f9f3b9136deb1001582d392b91bb3ecbe34d",
+    "restricted.py": "8f8fdcc4dc41813cf5d8f8c55e4b219310145f74a540457b52c41843a49bd831",
+    "validate_onnxruntime.py": "f23741266d9f58f968ae9dd79e433d89bfbf1109472e4911d8a0d83bc9352746",
+    "validate_adapter_batch.py": "7abb76894134b370306387f327b771245bcf8870e365b7b6df34630590f0fcca",
+    "tensor_adapter.py": "69b97c30ede02876770948267733457797962400060bcb967d1ee6d284879d10"
+  },
+  "dataset_evaluation": {
+    "lafan_report": "validation/lafan-mjwarp.json",
+    "seed_report": "validation/seed-mjwarp.json",
+    "seed_attempt_report": "validation/seed-attempt.json",
+    "reproduction_report": "validation/lafan-reproduction.json"
+  }
+}

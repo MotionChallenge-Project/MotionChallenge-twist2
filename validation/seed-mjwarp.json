@@ -1,0 +1,81 @@
+{
+  "result_sha256": "0ca260b545dd97dc747b49bdf919d0d0b966cb34087e98863bb9c874824b0718",
+  "protocol_sha256": "3900f88a933613534e896fcd6732fa19bde6ed772d36cad017b9cb7f0e8269b7",
+  "runtime_sha256": "61de74e638f3894e6ed1964c6abc65b983831faec46981301d7bade86bd3a980",
+  "dataset_identity": {
+    "dataset": "seed",
+    "converter_sha256": "aaa70926d7d91837104762eea3c310f0ef1701975d7a3accfd8e1ff0e317d973",
+    "pose_format": "xyz-xyzw-joints-f32",
+    "source_sha256": "52580ea8bced72ea9e2ff1e7b68f01c51c7f1099581e9a46b7c87e1dec106d8a",
+    "selection_sha256": "1c1c9cd881aa48a591f0ae81318efa557673129a765225c235a89c8e6fe5d809",
+    "key": "289a3c3bb3890f12acfbe8f2fe018c9bd1c1772623418e010e7c1336d7cc635f",
+    "joint_names": [
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_hip_yaw_joint",
+      "left_knee_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_hip_yaw_joint",
+      "right_knee_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint",
+      "waist_yaw_joint",
+      "waist_roll_joint",
+      "waist_pitch_joint",
+      "left_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "left_shoulder_yaw_joint",
+      "left_elbow_joint",
+      "left_wrist_roll_joint",
+      "left_wrist_pitch_joint",
+      "left_wrist_yaw_joint",
+      "right_shoulder_pitch_joint",
+      "right_shoulder_roll_joint",
+      "right_shoulder_yaw_joint",
+      "right_elbow_joint",
+      "right_wrist_roll_joint",
+      "right_wrist_pitch_joint",
+      "right_wrist_yaw_joint"
+    ],
+    "fps": 120.0,
+    "poses_sha256": "0b34d218c9ae98b755de9232f83da6708137681ce953f6d5c97f28f1b916274d",
+    "preparation": {
+      "workers": 8,
+      "source_validation_seconds": 26.699889697134495,
+      "conversion_and_output_hash_seconds": 805.7325259186327,
+      "total_seconds": 832.4324182905257
+    }
+  },
+  "summary": {
+    "success_count": 123494,
+    "completion": 0.9706095989634446,
+    "full": {
+      "mpjpe_world_m": 0.5517189257898855,
+      "mpjpe_xy_aligned_m": 0.10179200151846245,
+      "mpjpe_xy_yaw_aligned_m": 0.056066822385404495,
+      "joint_mae_rad": 0.1533715480145403,
+      "anchor_height_error_m": 0.02545028272430434,
+      "anchor_gravity_z_error": 0.0291289558610019
+    },
+    "prefix": {
+      "mpjpe_world_m": 0.5114447410862101,
+      "mpjpe_xy_aligned_m": 0.09352139559784016,
+      "mpjpe_xy_yaw_aligned_m": 0.04826454377138746,
+      "joint_mae_rad": 0.14963993175760612,
+      "anchor_height_error_m": 0.01878264481226896,
+      "anchor_gravity_z_error": 0.015753718576152154
+    }
+  },
+  "verification": {
+    "verification": "independent_cpu_trace_recomputation_passed",
+    "clips": 129561,
+    "verifier_sha256": "822098272459bd44d65eb365cb0df9a5f3492410f63ab11cf055669b3a52237a",
+    "max_metric_abs_error": 4.099474959495808e-08,
+    "result_sha256": "0ca260b545dd97dc747b49bdf919d0d0b966cb34087e98863bb9c874824b0718",
+    "scope": "Trace consistency only; a separate clean rerun is still required"
+  },
+  "slots": 4096
+}
