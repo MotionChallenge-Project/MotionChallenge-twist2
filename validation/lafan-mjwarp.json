@@ -1,22 +1,22 @@
 {
   "result_sha256": "6701f9682ef08238bcc2b4ee278f366926b5c76eea758a962af3161f108edbe4",
-  "protocol_sha256": "940b7b6e059959c17f8ad092ccc7538d217a02f368fc9c00ad7c15f2b07713a9",
+  "protocol_sha256": "d573e641567550bddae48f987dfddbd44cff94cc8ff669613d91c6597d86bc32",
   "runtime_sha256": "1ecfb62b1bcdb30da2dc287f475d424a29083760d99e604fd00fcb4599b992b3",
   "summary": {
     "success_count": 9,
     "completion": 0.47057295011276923,
     "full": {
-      "mpjpe_world_m": 7.6014278038299725,
-      "mpjpe_xy_aligned_m": 0.43888724858487443,
-      "mpjpe_xy_yaw_aligned_m": 0.345896668023299,
+      "mpkpe_world_m": 7.6014278038299725,
+      "mpkpe_xy_aligned_m": 0.43888724858487443,
+      "mpkpe_xy_yaw_aligned_m": 0.345896668023299,
       "joint_mae_rad": 0.2952669697462805,
       "anchor_height_error_m": 0.28211576866290866,
       "anchor_gravity_z_error": 0.4658444159060009
     },
     "prefix": {
-      "mpjpe_world_m": 5.207529947810045,
-      "mpjpe_xy_aligned_m": 0.190406025167063,
-      "mpjpe_xy_yaw_aligned_m": 0.05755628042249698,
+      "mpkpe_world_m": 5.207529947810045,
+      "mpkpe_xy_aligned_m": 0.190406025167063,
+      "mpkpe_xy_yaw_aligned_m": 0.05755628042249698,
       "joint_mae_rad": 0.1594590133906962,
       "anchor_height_error_m": 0.023640893932244715,
       "anchor_gravity_z_error": 0.017529989620403048
